@@ -1,0 +1,346 @@
+{
+  "Version": 2,
+  "SessionId": "1f07ad80-76d2-11ed-9eaf-5bbe66b0de46",
+  "Messages": [
+    {
+      "time": 1670488046312,
+      "category": "UserAction",
+      "name": "Select",
+      "logLevel": 2,
+      "data": {
+        "context": { "entityName": "TextInput1", "propertyName": "OnSelect" }
+      },
+      "correlationId": "14f6e7fd-f547-431a-a252-2483f78b6a841"
+    },
+    {
+      "time": 1670488049630,
+      "category": "UserAction",
+      "name": "SetProperty",
+      "logLevel": 2,
+      "data": {
+        "context": { "entityName": "TextInput1", "propertyName": "Text" },
+        "value": "barcelona"
+      },
+      "correlationId": "14f6e7fd-f547-431a-a252-2483f78b6a842"
+    },
+    {
+      "time": 1670488049739,
+      "category": "UserAction",
+      "name": "Select",
+      "logLevel": 2,
+      "data": {
+        "context": {
+          "entityName": "Button1",
+          "propertyName": "OnSelect",
+          "diagnosticContext": {
+            "formula": "ClearCollect(weatherCollection, MSNWeather.TodaysForecast(TextInput1.Text, \"Imperial\").responses.daily.day.summary)"
+          }
+        }
+      },
+      "correlationId": "14f6e7fd-f547-431a-a252-2483f78b6a843"
+    },
+    {
+      "time": 1670488050311,
+      "category": "Network",
+      "name": "TodaysForecast",
+      "logLevel": 2,
+      "data": {
+        "context": {
+          "entityName": "Button1",
+          "propertyName": "OnSelect",
+          "id": 23,
+          "nodeId": 7,
+          "diagnosticContext": {
+            "dataOperation": {
+              "protocol": "rest",
+              "operation": "TodaysForecast",
+              "dataSource": "MSNWeather"
+            },
+            "formula": "ClearCollect(weatherCollection, MSNWeather.TodaysForecast(TextInput1.Text, \"Imperial\").responses.daily.day.summary)",
+            "span": { "start": 32, "end": 86 }
+          }
+        },
+        "request": {
+          "url": "https://unitedstates-002.azure-apim.net/apim/msnweather/be9adcb6b710475092030770476be970/forecast/today/barcelona?units=Imperial",
+          "method": "GET",
+          "headers": {
+            "x-ms-user-agent": "PowerApps/3.22111.28 (Web AuthoringTool; AppName=6af246d4-55cb-4f3b-bdba-0a03e4a6b5bc)",
+            "x-ms-client-session-id": "45e6f584-6167-493b-9750-b1fb40ff5189",
+            "x-ms-client-request-id": "089aacd4-ce46-4a45-bb07-7816a794e376",
+            "x-ms-client-environment-id": "/providers/Microsoft.PowerApps/environments/Default-a2987557-a1a5-4224-a4c2-1ef6190de56d",
+            "x-ms-client-app-id": "/providers/Microsoft.PowerApps/apps/6af246d4-55cb-4f3b-bdba-0a03e4a6b5bc",
+            "x-ms-client-tenant-id": "a2987557-a1a5-4224-a4c2-1ef6190de56d",
+            "x-ms-client-object-id": "911fa95a-e9f4-41f0-8592-f6952d55d7c3",
+            "Accept-Language": "en",
+            "Accept": "*/*",
+            "Cache-Control": "no-cache, no-store",
+            "x-ms-request-method": "GET",
+            "x-ms-request-url": "/apim/msnweather/be9adcb6b710475092030770476be970/forecast/today/barcelona?units=Imperial"
+          },
+          "body": ""
+        },
+        "response": {
+          "duration": 323.09,
+          "size": 2901,
+          "status": 200,
+          "headers": {
+            "accept-ch": "Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Full-Version,Sec-CH-UA-Mobile,Sec-CH-UA-Model,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version",
+            "content-encoding": "gzip",
+            "Content-Type": "application/json; charset=utf-8",
+            "Date": "Thu, 08 Dec 2022 08:27:29 GMT",
+            "ddd-activityid": "206457ed-ae0f-4a4e-bceb-de0acd62e816",
+            "ddd-authenticatedwithjwtflow": "False",
+            "ddd-datastore": "WeatherDataStore",
+            "ddd-debugid": "206457ed-ae0f-4a4e-bceb-de0acd62e816|2022-12-08T08:27:29.8893560Z|fabric:/weather|EUS1|Weather_11",
+            "ddd-servername": "E51B65E991D0",
+            "ddd-strategyexecutionlatency": "00:00:00.0034243",
+            "ddd-strategyid": "Weather_defaultReadStrategy",
+            "ddd-usertype": "Unknown",
+            "nel": "{\"report_to\":\"network-errors\",\"max_age\":604800,\"success_fraction\":0.001,\"failure_fraction\":1.0}",
+            "onewebservicelatency": "3",
+            "report-to": "{\"group\":\"network-errors\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://deff.nelreports.net/api/report?cat=msn\"}]}",
+            "timing-allow-origin": "*",
+            "vary": "Accept-Encoding",
+            "x-cache": "CONFIG_NOCACHE",
+            "x-fabric-cluster": "oneservice-eastus-prod",
+            "x-fd-detection-corpnet": "0",
+            "x-fd-features": "prg-adspeek,btrecrow2,1s-winauthservice,prg-1sw-wcf1,prg-1sw-fwc,prg-1sw-fwcp1,prg-1sw-sptprvmax5,prg-hprewflyout-t,prg-ias,1s-fcrypt,prg-upsaip-w1-t,prg-upsaip-r-t,prg-wx-anmpr,prg-wea-allxap,prg-wea-subxap,prg-wx-sbn-vm,prg-1sw-sbn-mm,prg-wx-visitm,1s-rpssecautht,prg-pr2-bvt-flash,prg-1sw-wcf2,prg-1sw-fwc,prg-1sw-fwcp2,ads-engageyaeu,prg-ugc-test-3,1s-xapntpseg,prg-weanouser1,prg-1sw-wcfnt,prg-1sw-fwc,prg-1sw-fwcntp,1s-compicsync,prg-1sw-cbm0,prg-1sw-multif1,prg-inte-sess,prg-wx-aqzoom,prg-1sw-multifn,prg-dbzm200,prg-pr2-telpin,1s-defaultscn,prg-1sw-pde0,prg-1sw-p1svgv6,prg-1sw-p2pngv6,prg-1s-vlprecalllog3,prg-1sw-aqeu,prg-1sw-multif2,1s-defaultscnw,prg-wx-mslp,prg-1sw-3dl1,prg-1sw-rhani,prg-1sw-wcstart,prg-wx3dci,prg-1sw-tbrcounter,prg-timelineci,prg-wx-morci,prg-ugc-proforma,prg-1sw-wc16nlwus,prg-1sw-wc16arwau,prg-feed2p2-t1,1s-brcolors,1s-cols-duo,prg-sc-prong2,prg-wscards-t1",
+            "x-fd-flight": "2ml4=prg-adspeek,2rb4=btrecrow2,2tpu=1s-winauthservice,wfeedsmuid17=prg-1sw-wcf1,wfeedsmuidheader2=prg-hprewflyout-t,314c=prg-ias,3gk6=1s-fcrypt,3nhv=prg-upsaip-w1-t,3pum=prg-upsaip-r-t,3qpc=prg-wx-anmpr,3sx0=prg-wea-allxap,3t7d=prg-wx-sbn-vm,3txa=prg-1sw-sbn-mm,3v9z=prg-wx-visitm,3vhe=1s-rpssecautht,prong2flyout7=prg-pr2-bvt-flash,prong2flyout8=prg-1sw-wcf2,497e=ads-engageyaeu,4a51=prg-ugc-test-3,4a6y=1s-xapntpseg,4ax2=prg-weanouser1,edgidanaheimsports1=prg-1sw-wcfnt,4fkl=1s-compicsync,4hgy=prg-1sw-cbm0,4hzf=prg-1sw-multif1,4i01=prg-inte-sess,4iar=prg-wx-aqzoom,4ihf=prg-1sw-multifn,4j9u=prg-dbzm200,4jf5=prg-pr2-telpin,4jh8=1s-defaultscn,4jq3=prg-1sw-pde0,4jsu=prg-1sw-p1svgv6,4jsv=prg-1sw-p2pngv6,4jtd=prg-1s-vlprecalllog3,4kgh=prg-1sw-aqeu,4kow=prg-1sw-multif2,4ksj=1s-defaultscnw,4kvu=prg-wx-mslp,4ljv=prg-1sw-3dl1,4lpe=prg-1sw-rhani,4lta=prg-1sw-wcstart,4lzw=prg-wx3dci,4mdy=prg-1sw-tbrcounter,4mll=prg-timelineci,4mre=prg-wx-morci,4n3u=prg-ugc-proforma,4n4x=prg-1sw-wc16nlwus,4nau=prg-1sw-wc16arwau,4nt7=prg-feed2p2-t1",
+            "x-ms-apihub-cached-response": "false",
+            "x-ms-apihub-obo": "false",
+            "x-msedge-ref": "Ref A",
+            "x-msedge-responseinfo": "3"
+          },
+          "body": "{\"responses\":{\"daily\":{\"day\":{\"cap\":\"Rain\",\"pvdrCap\":\"Rain\",\"icon\":22,\"symbol\":\"d430\",\"pvdrIcon\":\"22\",\"urlIcon\":\"http://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAehOqB.img\",\"precip\":86,\"sky\":\"OVC\",\"windDir\":352,\"windSpd\":3,\"summaries\":[\"Bring an umbrella. It's going to rain.\",\"The high will be 55°.\"],\"summary\":\"Bring an umbrella. It's going to rain. The high will be 55°.\",\"wx\":\"\"},\"night\":{\"cap\":\"Rain showers\",\"pvdrCap\":\"Rain showers\",\"icon\":50,\"symbol\":\"n320\",\"pvdrIcon\":\"50\",\"urlIcon\":\"http://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAehYND.img\",\"precip\":77,\"sky\":\"BKN\",\"windDir\":262,\"windSpd\":9,\"summaries\":[\"Expect scattered rain showers.\",\"The low will be 50°.\"],\"summary\":\"Expect scattered rain showers. The low will be 50°.\",\"wx\":\"\"},\"pvdrCap\":\"Rain\",\"pvdrWindDir\":\"352\",\"pvdrWindSpd\":\"1.3\",\"valid\":\"2022-12-07T23:00:00+00:00\",\"icon\":22,\"symbol\":\"d430\",\"pvdrIcon\":\"22\",\"iconUrl\":\"http://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAehOqB.img\",\"precip\":86,\"windMax\":9,\"windMaxDir\":262,\"rhHi\":95,\"rhLo\":81,\"tempHi\":55,\"tempLo\":50,\"uv\":1,\"uvDesc\":\"Low\",\"created\":\"2022-12-08T07:30:00+00:00\",\"rainAmount\":0.16,\"snowAmount\":0},\"almanac\":{\"valid\":\"2022-12-08T00:00:00+00:00\",\"sunrise\":\"2022-12-08T07:04:17+00:00\",\"sunset\":\"2022-12-08T16:21:42+00:00\",\"moonrise\":\"2022-12-08T16:23:47+00:00\",\"moonset\":\"2022-12-08T07:28:09+00:00\",\"moonState\":\"1\",\"moonPhase\":\"Full\",\"moonPhaseCode\":\"Full\"},\"provider\":{\"name\":\"Foreca\",\"url\":\"http://www.foreca.com\"},\"source\":{\"id\":\"106544106\",\"coordinates\":{\"lat\":41.38022,\"lon\":2.17319},\"location\":\"Barcelona, Catalonia, Spain\",\"utcOffset\":\"01:00:00\",\"countryCode\":\"ES\"}},\"units\":{\"system\":\"Imperial\",\"pressure\":\"in\",\"temperature\":\"‎°F\",\"speed\":\"mph\",\"height\":\"in\",\"distance\":\"mi\",\"time\":\"s\"},\"copyright\":\"Copyright © 2022 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.\"}",
+          "responseType": "json"
+        },
+        "startTime": 103695.5,
+        "name": "https://unitedstates-002.azure-apim.net/invoke",
+        "fetchStart": 103698.8,
+        "domainLookupStart": 103698.8,
+        "domainLookupEnd": 103698.8,
+        "connectStart": 103698.8,
+        "connectEnd": 103698.8,
+        "secureConnectionStart": 103698.8,
+        "requestStart": 103846.4,
+        "responseStart": 103987.4,
+        "responseEnd": 103991.9,
+        "transferSize": 1304,
+        "nextHopProtocol": "h2"
+      },
+      "correlationId": "14f6e7fd-f547-431a-a252-2483f78b6a844"
+    },
+    {
+      "time": 1670488050322,
+      "category": "Function",
+      "name": "ClearCollect",
+      "logLevel": 2,
+      "data": {
+        "context": {
+          "entityName": "Button1",
+          "propertyName": "OnSelect",
+          "id": 23,
+          "nodeId": 13,
+          "diagnosticContext": {
+            "dataOperation": {
+              "protocol": "local",
+              "operation": "ClearCollect",
+              "dataSource": "weatherCollection"
+            },
+            "formula": "ClearCollect(weatherCollection, MSNWeather.TodaysForecast(TextInput1.Text, \"Imperial\").responses.daily.day.summary)",
+            "span": { "start": 0, "end": 115 }
+          }
+        },
+        "info": "1 rows collected."
+      },
+      "correlationId": "14f6e7fd-f547-431a-a252-2483f78b6a845"
+    }
+  ],
+  "Config": [
+    {
+      "matcher": [
+        {
+          "engine": "jmespath",
+          "params": {
+            "properties": [{ "expression": "category", "value": "Network" }]
+          }
+        }
+      ],
+      "pivotItems": [
+        {
+          "template": "editor",
+          "displayName": "Details",
+          "mappers": {
+            "editorData": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "@.{\n          status: data.response.status || data.status,\n          duration: data.duration || data.elapsedTime || data.response.duration || duration,\n          dataSource:\n              data.context.diagnosticContext.dataOperation.dataSource\n              || data.context.dataOperation.dataSource\n              || data.dataOperation.dataSource\n              || dataSource,\n          responseSize: data.response.size,\n          controlName: data.context.entityName || controlName,\n          propertyName: data.context.propertyName || propertyName,\n          nodeId: data.context.nodeId,\n          formulaData: {\n            script: data.context.diagnosticContext.formula || '',\n            spanStart: data.context.diagnosticContext.span.start,\n            spanEnd: data.context.diagnosticContext.span.end\n          },\n          data: data\n        }"
+              }
+            }
+          }
+        },
+        {
+          "template": "expression",
+          "displayName": "Formula",
+          "mappers": {
+            "title": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "join(`.`, [data.context.entityName, data.context.propertyName])"
+              }
+            },
+            "highlightStart": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.span.start"
+              }
+            },
+            "highlightEnd": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.span.end"
+              }
+            },
+            "formula": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.formula"
+              }
+            }
+          }
+        },
+        {
+          "template": "editor",
+          "displayName": "Request",
+          "mappers": {
+            "editorData": {
+              "engine": "jmespath",
+              "params": { "expression": "data.request" }
+            }
+          }
+        },
+        {
+          "template": "studioTable",
+          "displayName": "Response",
+          "mappers": {
+            "editorData": {
+              "engine": "jmespath",
+              "params": { "expression": "data.response" }
+            },
+            "responseBody": {
+              "engine": "jmespath",
+              "params": { "expression": "data.response.body" }
+            },
+            "tableTitle": { "engine": "direct", "params": { "value": "Body" } }
+          }
+        }
+      ]
+    },
+    {
+      "matcher": [{ "engine": "always" }],
+      "columns": [
+        {
+          "displayName": "Status",
+          "mapper": {
+            "engine": "jmespath",
+            "params": { "expression": "data.response.status || status" }
+          },
+          "displayParams": { "filterType": "number" }
+        },
+        {
+          "displayName": "Duration",
+          "mapper": {
+            "engine": "jmespath",
+            "params": {
+              "expression": "data.duration || data.elapsedTime || data.response.duration || duration"
+            }
+          },
+          "displayParams": {
+            "filterType": "number",
+            "formatter": { "name": "integer" }
+          }
+        },
+        {
+          "displayName": "DataSource",
+          "mapper": {
+            "engine": "jmespath",
+            "params": {
+              "expression": "\n            data.context.diagnosticContext.dataOperation.dataSource ||\n            data.context.dataOperation.dataSource ||\n            data.dataOperation.dataSource ||\n            dataSource"
+            }
+          }
+        },
+        {
+          "displayName": "Control",
+          "mapper": {
+            "engine": "jmespath",
+            "params": { "expression": "data.context.entityName || controlName" }
+          }
+        },
+        {
+          "displayName": "Property",
+          "mapper": {
+            "engine": "jmespath",
+            "params": {
+              "expression": "data.context.propertyName || propertyName"
+            }
+          }
+        },
+        {
+          "displayName": "HttpResponseSize",
+          "mapper": {
+            "engine": "jmespath",
+            "params": { "expression": "data.response.size" }
+          },
+          "displayParams": {
+            "filterType": "number",
+            "formatter": { "name": "integer" }
+          }
+        }
+      ],
+      "pivotItems": [
+        {
+          "template": "editor",
+          "displayName": "Details",
+          "mappers": {
+            "editorData": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "@.{\n          status: data.response.status || data.status,\n          duration: data.duration || data.elapsedTime || data.response.duration || duration,\n          dataSource:\n              data.context.diagnosticContext.dataOperation.dataSource\n              || data.context.dataOperation.dataSource\n              || data.dataOperation.dataSource\n              || dataSource,\n          responseSize: data.response.size,\n          controlName: data.context.entityName || controlName,\n          propertyName: data.context.propertyName || propertyName,\n          nodeId: data.context.nodeId,\n          formulaData: {\n            script: data.context.diagnosticContext.formula || '',\n            spanStart: data.context.diagnosticContext.span.start,\n            spanEnd: data.context.diagnosticContext.span.end\n          },\n          data: data\n        }"
+              }
+            }
+          }
+        },
+        {
+          "template": "expression",
+          "displayName": "Formula",
+          "mappers": {
+            "title": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "join(`.`, [data.context.entityName, data.context.propertyName])"
+              }
+            },
+            "highlightStart": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.span.start"
+              }
+            },
+            "highlightEnd": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.span.end"
+              }
+            },
+            "formula": {
+              "engine": "jmespath",
+              "params": {
+                "expression": "data.context.diagnosticContext.formula"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
