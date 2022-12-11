@@ -9,7 +9,8 @@
       "easyplan/1.0.0": {
         "dependencies": {
           "Spectre.Console": "0.45.0",
-          "Spectre.Console.Cli": "0.45.0"
+          "Spectre.Console.Cli": "0.45.0",
+          "YamlDotNet": "12.2.0"
         },
         "runtime": {
           "easyplan.dll": {}
@@ -37,7 +38,15 @@
           }
         }
       },
-      "System.Memory/4.5.5": {}
+      "System.Memory/4.5.5": {},
+      "YamlDotNet/12.2.0": {
+        "runtime": {
+          "lib/net6.0/YamlDotNet.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.2.0.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -66,6 +75,13 @@
       "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "path": "system.memory/4.5.5",
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "YamlDotNet/12.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2pK57YadH9mdL2mZLxAEfJf3JxWnkNR4GPBl895oJSkKbYl6jut/69lH/Lwkyo6Uc5OV92uOSs++nnAxXdDhWA==",
+      "path": "yamldotnet/12.2.0",
+      "hashPath": "yamldotnet.12.2.0.nupkg.sha512"
     }
   }
 }

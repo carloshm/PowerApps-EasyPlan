@@ -34,6 +34,15 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "YamlDotNet/12.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/YamlDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/YamlDotNet.dll": {}
+        }
       }
     }
   },
@@ -85,12 +94,32 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "YamlDotNet/12.2.0": {
+      "sha512": "2pK57YadH9mdL2mZLxAEfJf3JxWnkNR4GPBl895oJSkKbYl6jut/69lH/Lwkyo6Uc5OV92uOSs++nnAxXdDhWA==",
+      "type": "package",
+      "path": "yamldotnet/12.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "images/yamldotnet.png",
+        "lib/net35/YamlDotNet.dll",
+        "lib/net45/YamlDotNet.dll",
+        "lib/net47/YamlDotNet.dll",
+        "lib/net6.0/YamlDotNet.dll",
+        "lib/netstandard2.0/YamlDotNet.dll",
+        "lib/netstandard2.1/YamlDotNet.dll",
+        "yamldotnet.12.2.0.nupkg.sha512",
+        "yamldotnet.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Spectre.Console >= 0.45.0",
-      "Spectre.Console.Cli >= 0.45.0"
+      "Spectre.Console.Cli >= 0.45.0",
+      "YamlDotNet >= 12.2.0"
     ]
   },
   "packageFolders": {
@@ -137,6 +166,10 @@
           "Spectre.Console.Cli": {
             "target": "Package",
             "version": "[0.45.0, )"
+          },
+          "YamlDotNet": {
+            "target": "Package",
+            "version": "[12.2.0, )"
           }
         },
         "imports": [

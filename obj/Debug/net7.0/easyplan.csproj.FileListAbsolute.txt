@@ -16,3 +16,4 @@
 /workspaces/easyplan/obj/Debug/net7.0/easyplan.genruntimeconfig.cache
 /workspaces/easyplan/obj/Debug/net7.0/ref/easyplan.dll
 /workspaces/easyplan/bin/Debug/net7.0/Spectre.Console.Cli.dll
+/workspaces/easyplan/bin/Debug/net7.0/YamlDotNet.dll

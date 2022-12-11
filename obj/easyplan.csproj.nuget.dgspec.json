@@ -45,6 +45,10 @@
             "Spectre.Console.Cli": {
               "target": "Package",
               "version": "[0.45.0, )"
+            },
+            "YamlDotNet": {
+              "target": "Package",
+              "version": "[12.2.0, )"
             }
           },
           "imports": [

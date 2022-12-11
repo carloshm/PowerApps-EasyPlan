@@ -15,7 +15,7 @@ public static class Program
             config.ValidateExamples();
             config.AddExample(new[] { "new", "--defaults" });
 
-                // Run
+                // New Blank YAML Test Plan
                 config.AddCommand<NewCommand>("new");
         });
 
