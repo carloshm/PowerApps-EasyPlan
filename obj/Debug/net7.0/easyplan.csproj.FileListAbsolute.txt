@@ -17,3 +17,5 @@
 /workspaces/easyplan/obj/Debug/net7.0/ref/easyplan.dll
 /workspaces/easyplan/bin/Debug/net7.0/Spectre.Console.Cli.dll
 /workspaces/easyplan/bin/Debug/net7.0/YamlDotNet.dll
+/workspaces/easyplan/bin/Debug/net7.0/SixLabors.ImageSharp.dll
+/workspaces/easyplan/bin/Debug/net7.0/Spectre.Console.ImageSharp.dll

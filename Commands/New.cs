@@ -29,8 +29,6 @@ public sealed class NewCommand : Command<NewCommand.Settings>
 
     public override int Execute(CommandContext context, Settings settings)
     {
-        //AnsiConsole.Write(new FigletText("new Test Plan").Centered().Color(Color.Purple));
-
         var testPlan = new testPlan
         {
             testSuite = new testSuite(){
