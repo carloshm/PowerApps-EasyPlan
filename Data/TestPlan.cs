@@ -20,7 +20,7 @@ public class testSuite
     public required string persona { get; set; }
     public required string appLogicalName { get; set; }
     public string appId { get; set; }
-    public List<NetworkRequestMock> NetworkRequestMocks { get; set; }
+    public List<NetworkRequestMock> networkRequestMocks { get; set; }
     public required List<testCase> testCases { get; set; }
     public string onTestCaseStart { get; set; }
     public string onTestCaseComplete { get; set; }
@@ -34,10 +34,10 @@ public class testCase
 public class NetworkRequestMock
 {
     public required string requestURL { get; set; }
+    public string method { get; set; }
+    public Dictionary<string,string> headers { get; set; }
     public required string responseDataFile { get; set; }
-    public string Method { get; set; }
-    public string Headers { get; set; }
-    public string requestBodyFile { get; set; }
+    [DefaultValue("")] public string requestBodyFile { get; set; } = string.Empty;
 }
 public class testSettings
 {

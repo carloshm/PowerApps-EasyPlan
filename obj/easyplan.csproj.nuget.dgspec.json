@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[0.45.0, )"
             },
+            "Spectre.Console.ImageSharp": {
+              "target": "Package",
+              "version": "[0.45.0, )"
+            },
             "YamlDotNet": {
               "target": "Package",
               "version": "[12.2.0, )"

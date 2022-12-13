@@ -38,6 +38,17 @@ public sealed class NewCommand : Command<NewCommand.Settings>
                 testSuiteDescription = "Verifies that the calculator app works. The calculator is a component.",
                 persona = "User1",
                 appLogicalName = "new_calculator_a3613",
+                networkRequestMocks = new List<NetworkRequestMock>{
+                        new  NetworkRequestMock() {
+                            requestURL = "https://*.azure-apim.net/invoke",
+                            method = "POST",
+                            headers = new Dictionary<string,string>(){
+                                {"x-ms-request-method","GET"}            
+                            },
+                            responseDataFile = "../../samples/connector/response.json",
+                            requestBodyFile = ""
+                        }
+                },
                 testCases = new List<testCase>{
                         new  testCase() {
                             testCaseName = "Default Check",
