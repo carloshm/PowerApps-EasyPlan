@@ -26,7 +26,7 @@ public static class Program
             config.SetApplicationName("easyplan");
             config.ValidateExamples();
             config.AddExample(new[] { "new", "--defaults" });
-            config.AddExample(new[] { "new", "--file test.file.yaml" });
+            config.AddExample(new[] { "new", "--file", "test.file.yaml" });
 
             // New Blank YAML Test Plan
             config.AddCommand<NewCommand>("new");

@@ -12,8 +12,6 @@ namespace EasyPlan.Commands.New;
 [Description("Create a new sample test plan file for a Test Engine project.")]
 public sealed class NewCommand : Command<NewCommand.Settings>
 {
-    public const string TEST_PLAN_PATH = "testPlan.fx.yaml";
-
     public sealed class Settings : CommandSettings
     {
         [CommandOption("-c|--configuration <CONFIGURATION>")]
@@ -27,7 +25,7 @@ public sealed class NewCommand : Command<NewCommand.Settings>
         public bool Defaults { get; set; }
 
         [CommandOption("-f|--file <FILEPATH>")]
-        [DefaultValue(TEST_PLAN_PATH)]
+        [DefaultValue("testPlan.fx.yaml")]
         [Description("The path to the test plan file to generate (defaults to the current directory if not present).")]
         public string FilePath { get; set; }
     }
@@ -87,25 +85,19 @@ public sealed class NewCommand : Command<NewCommand.Settings>
             }
         };
 
-        DefaultValuesHandling defaultValues = DefaultValuesHandling.Preserve;
-        string pathFile = TEST_PLAN_PATH;
+        DefaultValuesHandling defaultValues = DefaultValuesHandling.OmitNull;
 
         if(settings.Defaults == false){
             defaultValues = DefaultValuesHandling.OmitDefaults;
         }
 
-        if(settings.FilePath != TEST_PLAN_PATH){
-            pathFile = settings.FilePath;
-        }
-
-        using (StreamWriter writer = new StreamWriter(pathFile))
+        using (StreamWriter writer = new StreamWriter(settings.FilePath))
         {
             var serializer = new SerializerBuilder()
                 .ConfigureDefaultValuesHandling(defaultValues)
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
             serializer.Serialize(writer, testPlan);
-            //AnsiConsole.Write(yaml);
         }
 
         return 0;

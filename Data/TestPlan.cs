@@ -37,7 +37,7 @@ public class NetworkRequestMock
     public string method { get; set; }
     public Dictionary<string,string> headers { get; set; }
     public required string responseDataFile { get; set; }
-    [DefaultValue("")] public string requestBodyFile { get; set; } = string.Empty;
+    [DefaultValue(null)] public string? requestBodyFile { get; set; } = null;
 }
 public class testSettings
 {
@@ -46,15 +46,15 @@ public class testSettings
     [DefaultValue(false)] public bool enablePowerFxOverlay { get; set; }  = false;
     [DefaultValue(30000)] public int timeout { get; set; } = 30000;
     [DefaultValue(10)] public int workerCount { get; set; } = 10;
-    [DefaultValue("")] public string filePath { get; set; } = string.Empty;
+    [DefaultValue(null)] public string? filePath { get; set; } = null;
     public required browserConfigurations[] browserConfigurations { get; set; }
 }
 public class browserConfigurations
 {
     public required string browser { get; set; }
-    [DefaultValue("")] public string device { get; set; } = string.Empty;
-    [DefaultValue(0)] public int screenHeight { get; set; } = 0;
-    [DefaultValue(0)] public int screenWidth { get; set; } = 0;
+    [DefaultValue(null)] public string? device { get; set; } =  null;
+    [DefaultValue(null)] public int? screenHeight { get; set; } = null;
+    [DefaultValue(null)] public int? screenWidth { get; set; } = null;
 }
 
 public class users
@@ -66,6 +66,6 @@ public class users
 public class environmentVariables
 {
     public required users[] users { get; set; }
-    [DefaultValue("")] public string filePath { get; set; } = string.Empty;
+    [DefaultValue(null)] public string? filePath { get; set; } = null;
 
 }
