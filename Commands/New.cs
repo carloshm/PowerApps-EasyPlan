@@ -5,26 +5,31 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 #pragma warning disable CS8765
+#pragma warning disable CS8618
 
 namespace EasyPlan.Commands.New;
 
-[Description("Create a new test plan for a Test Engine project.")]
+[Description("Create a new sample test plan file for a Test Engine project.")]
 public sealed class NewCommand : Command<NewCommand.Settings>
 {
+    public const string TEST_PLAN_PATH = "testPlan.fx.yaml";
+
     public sealed class Settings : CommandSettings
     {
         [CommandOption("-c|--configuration <CONFIGURATION>")]
-        [Description("The configuration to run for. The default for most projects is '[grey]Debug[/]'.")]
+        [Description("The configuration to run for. The default for most projects is '[red]Debug[/]'.")]
         [DefaultValue("Debug")]
         public string? Configuration { get; set; }
 
         [CommandOption("--defaults")]
-        [Description("Include test plan with defaults value set. Implies [grey]all attributes with default values[/].")]
+        [DefaultValue(false)]
+        [Description("Include all test plan properties not set. This will populate properties with a default value.")]
         public bool Defaults { get; set; }
 
-        [CommandOption("-p|--project <PROJECTPATH>")]
-        [Description("The path to the project file to run (defaults to the current directory if there is only one project).")]
-        public string? ProjectPath { get; set; }
+        [CommandOption("-f|--file <FILEPATH>")]
+        [DefaultValue(TEST_PLAN_PATH)]
+        [Description("The path to the test plan file to generate (defaults to the current directory if not present).")]
+        public string FilePath { get; set; }
     }
 
     public override int Execute(CommandContext context, Settings settings)
@@ -82,12 +87,26 @@ public sealed class NewCommand : Command<NewCommand.Settings>
             }
         };
 
-        var serializer = new SerializerBuilder()
-            .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitDefaults)
-            .WithNamingConvention(CamelCaseNamingConvention.Instance)
-            .Build();
-        var yaml = serializer.Serialize(testPlan);
-        AnsiConsole.Write(yaml);
+        DefaultValuesHandling defaultValues = DefaultValuesHandling.Preserve;
+        string pathFile = TEST_PLAN_PATH;
+
+        if(settings.Defaults == false){
+            defaultValues = DefaultValuesHandling.OmitDefaults;
+        }
+
+        if(settings.FilePath != TEST_PLAN_PATH){
+            pathFile = settings.FilePath;
+        }
+
+        using (StreamWriter writer = new StreamWriter(pathFile))
+        {
+            var serializer = new SerializerBuilder()
+                .ConfigureDefaultValuesHandling(defaultValues)
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            serializer.Serialize(writer, testPlan);
+            //AnsiConsole.Write(yaml);
+        }
 
         return 0;
     }
