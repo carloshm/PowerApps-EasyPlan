@@ -1,4 +1,4 @@
-![EasyPlan logo](/logo/easyplan-title.svg "EasyPlan Logo")
+![EasyPlan logo](/Brand/easyplan-title.svg "EasyPlan Logo")
 
 # Simplify your Test Plans in Test Engine for Power Apps
 EasyPlan generates Test Engine test plans from Power Apps monitor logs export file. it allows you to create through a simpl console the YAML files required to run your tests.
