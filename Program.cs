@@ -1,6 +1,7 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Cli;
 using EasyPlan.Commands.New;
+using EasyPlan.Commands.Parse;
 
 namespace EasyPlan;
 /*
@@ -19,6 +20,7 @@ public static class Program
             new FigletText(font, "EasyPlan")
                 .LeftAligned()
                 .Color(Color.HotPink));
+        AnsiConsole.WriteLine();
 
         var app = new CommandApp();
         app.Configure(config =>
@@ -27,9 +29,13 @@ public static class Program
             config.ValidateExamples();
             config.AddExample(new[] { "new", "--defaults" });
             config.AddExample(new[] { "new", "--file", "test.file.yaml" });
+            config.AddExample(new[] { "parse", "--file", "PowerAppsTraceEvents.json" });
+            config.AddExample(new[] { "parse", "--help" });
 
             // New Blank YAML Test Plan
-            config.AddCommand<NewCommand>("new");
+            config.AddCommand<NewCommand>("new");            
+            // Parse Power Apps Monitor Session export 
+            config.AddCommand<ParseCommand>("parse");
         });
 
         return app.Run(args);

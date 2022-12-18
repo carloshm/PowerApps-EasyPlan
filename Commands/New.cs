@@ -14,11 +14,6 @@ public sealed class NewCommand : Command<NewCommand.Settings>
 {
     public sealed class Settings : CommandSettings
     {
-        [CommandOption("-c|--configuration <CONFIGURATION>")]
-        [Description("The configuration to run for. The default for most projects is '[red]Debug[/]'.")]
-        [DefaultValue("Debug")]
-        public string? Configuration { get; set; }
-
         [CommandOption("--defaults")]
         [DefaultValue(false)]
         [Description("Include all test plan properties not set. This will populate properties with a default value.")]
@@ -26,79 +21,91 @@ public sealed class NewCommand : Command<NewCommand.Settings>
 
         [CommandOption("-f|--file <FILEPATH>")]
         [DefaultValue("testPlan.fx.yaml")]
-        [Description("The path to the test plan file to generate (defaults to the current directory if not present).")]
+        [Description("The path to the test plan file to generate (defaults to the current directory if not present and default name+extension).")]
         public string FilePath { get; set; }
     }
 
     public override int Execute(CommandContext context, Settings settings)
     {
-        var testPlan = new testPlan
-        {
-            testSuite = new testSuite(){
-                testSuiteName = "Calculator",
-                testSuiteDescription = "Verifies that the calculator app works. The calculator is a component.",
-                persona = "User1",
-                appLogicalName = "new_calculator_a3613",
-                networkRequestMocks = new List<NetworkRequestMock>{
-                        new  NetworkRequestMock() {
-                            requestURL = "https://*.azure-apim.net/invoke",
-                            method = "POST",
-                            headers = new Dictionary<string,string>(){
-                                {"x-ms-request-method","GET"}            
-                            },
-                            responseDataFile = "../../samples/connector/response.json",
-                            requestBodyFile = ""
-                        }
-                },
-                testCases = new List<testCase>{
-                        new  testCase() {
-                            testCaseName = "Default Check",
-                            testSteps = "= Screenshot('calculator_loaded.png');\nAssert(Calculator_1.Number1Label.Text = '100', 'Validate default value for number 1 label');\nAssert(Calculator_1.Number2Label.Text = '100', 'Validate default value for number 2 label');"
-                        }
-                }
-            },
-            testSettings = new testSettings(){
-                recordVideo = true,
-                headless = true,
-                enablePowerFxOverlay = true,
-                browserConfigurations = new browserConfigurations[]
+        AnsiConsole.Status()
+            .Start("Generating test plan file...", ctx =>
+            {
+                // Test Plan definition
+                AnsiConsole.MarkupLine("[HotPink]LOG[/]: Configuring test plan template...");
+                Thread.Sleep(1000);
+                var testPlan = new testPlan
                 {
-                    new browserConfigurations
-                    {
-                        browser = "Firefox"
-                    }
-                }
-            },
-            environmentVariables = new environmentVariables(){
-                users = new users[]{
-                    new users{
-                        personaName = "User1",
-                        emailKey = "user1Email",
-                        passwordKey = "user1Password"
+                    testSuite = new testSuite(){
+                        testSuiteName = "Calculator",
+                        testSuiteDescription = "Verifies that the calculator app works. The calculator is a component.",
+                        persona = "User1",
+                        appLogicalName = "new_calculator_a3613",
+                        networkRequestMocks = new List<NetworkRequestMock>{
+                                new  NetworkRequestMock() {
+                                    requestURL = "https://*.azure-apim.net/invoke",
+                                    method = "POST",
+                                    headers = new Dictionary<string,string>(){
+                                        {"x-ms-request-method","GET"}            
+                                    },
+                                    responseDataFile = "../../samples/connector/response.json",
+                                    requestBodyFile = "../../samples/connector/request.json"
+                                }
+                        },
+                        testCases = new List<testCase>{
+                                new  testCase() {
+                                    testCaseName = "Default Check",
+                                    testSteps = "= Screenshot('calculator_loaded.png');\nAssert(Calculator_1.Number1Label.Text = '100', 'Validate default value for number 1 label');\nAssert(Calculator_1.Number2Label.Text = '100', 'Validate default value for number 2 label');"
+                                }
+                        }
                     },
-                    new users{
-                        personaName = "User2",
-                        emailKey = "user2Email",
-                        passwordKey = "user2Password"
+                    testSettings = new testSettings(){
+                        recordVideo = true,
+                        headless = true,
+                        enablePowerFxOverlay = true,
+                        browserConfigurations = new browserConfigurations[]
+                        {
+                            new browserConfigurations
+                            {
+                                browser = "Firefox"
+                            }
+                        }
+                    },
+                    environmentVariables = new environmentVariables(){
+                        users = new users[]{
+                            new users{
+                                personaName = "User1",
+                                emailKey = "user1Email",
+                                passwordKey = "user1Password"
+                            },
+                            new users{
+                                personaName = "User2",
+                                emailKey = "user2Email",
+                                passwordKey = "user2Password"
+                            }
+                        }
                     }
+                };
+
+                DefaultValuesHandling defaultValues = DefaultValuesHandling.OmitNull;
+
+                if(settings.Defaults == false){
+                    defaultValues = DefaultValuesHandling.OmitDefaults;
                 }
-            }
-        };
 
-        DefaultValuesHandling defaultValues = DefaultValuesHandling.OmitNull;
+                // Serialize Test plan and save file
+                AnsiConsole.MarkupLine("[HotPink]LOG[/]: Serialize test plan and save file...");
 
-        if(settings.Defaults == false){
-            defaultValues = DefaultValuesHandling.OmitDefaults;
-        }
+                using (StreamWriter writer = new StreamWriter(settings.FilePath))
+                {
+                    var serializer = new SerializerBuilder()
+                        .ConfigureDefaultValuesHandling(defaultValues)
+                        .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                        .Build();
+                    serializer.Serialize(writer, testPlan);
+                }
+                AnsiConsole.MarkupLine("[HotPink]LOG[/]: [link]" + Path.GetFullPath(settings.FilePath) + "[/]");
 
-        using (StreamWriter writer = new StreamWriter(settings.FilePath))
-        {
-            var serializer = new SerializerBuilder()
-                .ConfigureDefaultValuesHandling(defaultValues)
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-            serializer.Serialize(writer, testPlan);
-        }
+            });
 
         return 0;
     }
