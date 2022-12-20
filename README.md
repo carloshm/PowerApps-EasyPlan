@@ -6,7 +6,7 @@
 
 This repository contains the EasyPlan Tool - it simplifies your test plans creation and execution in Test Engine for Power Apps. The tool suggests different test cases based on imported monitor logs, so you can add them into a test plan ready to be reviewed and run with Test Engine. Are you looking for network mocking for SharePoint sites, Dataverse or Custom Connectors? The tool generates the required files and properties to be added into your test plan. On the other hand, it allows the creation of YAML files based on user input data, or a starter template file. 
 
-Feedback is welcome! Please let me know what you think by opening an [issue](issues).
+Feedback is welcome! Please let me know what you think by opening an [issue](../../issues).
 
 ## Useful Links
 
