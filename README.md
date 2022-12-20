@@ -22,33 +22,27 @@ The easyplan tool is distributed as a .NET Tool from NuGet.org. The installation
 
 To install easyplan, use the dotnet tool install command:
 
-´´´
+```
 dotnet tool install -g easyplan
-´´´
+```
 
 To update to the latest version of tool, use the dotnet tool update command.
 
-´´´
+```
 dotnet tool update -g easyplan
-´´´
+```
 
 To uninstall it, simply type:
 
-´´´
+```
 dotnet tool uninstall -g easyplan
-´´´
+```
 
 Once you install the tool, you can view the list of available commands by typing:
 
-´´´
+```
 easyplan --help
-´´´
-
-To get help about individual commands like deploy or delete-deployment you can use the --help switch with the commands. For example to get help for the deploy command type:
-
-´´´
-dotnet easyplan --help
-´´´
+```
 
 ### This is how it works:
 
