@@ -1,0 +1,31 @@
+testSuite:
+  testSuiteName: Calculator
+  testSuiteDescription: Verifies that the calculator app works. The calculator is a component.
+  persona: User1
+  appLogicalName: new_calculator_a3613
+  networkRequestMocks:
+  - requestURL: https://*.azure-apim.net/invoke
+    method: POST
+    headers:
+      x-ms-request-method: GET
+    responseDataFile: ../../samples/connector/response.json
+    requestBodyFile: ../../samples/connector/request.json
+  testCases:
+  - testCaseName: Default Check
+    testSteps: |-
+      = Screenshot('calculator_loaded.png');
+      Assert(Calculator_1.Number1Label.Text = '100', 'Validate default value for number 1 label');
+      Assert(Calculator_1.Number2Label.Text = '100', 'Validate default value for number 2 label');
+testSettings:
+  recordVideo: true
+  enablePowerFxOverlay: true
+  browserConfigurations:
+  - browser: Firefox
+environmentVariables:
+  users:
+  - personaName: User1
+    emailKey: user1Email
+    passwordKey: user1Password
+  - personaName: User2
+    emailKey: user2Email
+    passwordKey: user2Password
