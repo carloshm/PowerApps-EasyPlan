@@ -1,4 +1,4 @@
-![EasyPlan logo](/logo/easyplan-title.svg "EasyPlan Logo")
+![EasyPlan logo](/Brand/easyplan-title.svg "EasyPlan Logo")
 
 # EasyPlan tool
 
