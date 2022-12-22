@@ -1,4 +1,5 @@
 [![.NET](https://github.com/carloshm/easyplan/actions/workflows/dotnet.yml/badge.svg)](https://github.com/carloshm/easyplan/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/carloshm/easyplan/actions/workflows/codeql.yml/badge.svg)](https://github.com/carloshm/easyplan/actions/workflows/codeql.yml)
 
 ![EasyPlan logo](/images/easyplan-title.svg "EasyPlan Logo")
 
