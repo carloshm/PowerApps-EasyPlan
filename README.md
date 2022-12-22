@@ -1,3 +1,5 @@
+[![.NET](https://github.com/carloshm/easyplan/actions/workflows/dotnet.yml/badge.svg)](https://github.com/carloshm/easyplan/actions/workflows/dotnet.yml)
+
 ![EasyPlan logo](/images/easyplan-title.svg "EasyPlan Logo")
 
 # EasyPlan tool
