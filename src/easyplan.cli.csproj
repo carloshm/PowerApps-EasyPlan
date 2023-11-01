@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,9 +8,12 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>easyplan</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <UserSecretsId>f543308b-db50-4d48-95d2-804397593abf</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.0.0-beta4" />
+    <PackageReference Include="SharpToken" Version="1.2.12" />
     <PackageReference Include="Spectre.Console" Version="0.45.0" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.45.0" />
     <PackageReference Include="Spectre.Console.ImageSharp" Version="0.45.0" />
